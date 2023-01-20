@@ -4,7 +4,7 @@ import requests
 import sys
 import pandas
 
-def fetch_poster(movie_id):
+def fetch_poster(movie_id):#get poster details from TMDB website using web scraping
     url = "https://api.themoviedb.org/3/movie/{}?api_key=ad668c7c4b6cd65940905716da98985f&language=en-US".format(movie_id)
     data = requests.get(url)
     data = data.json()
@@ -36,7 +36,7 @@ selected_movie = st.selectbox(
     movie_list
 )
 
-if st.button('Show Recommendation'):
+if st.button('Show Recommendation'): #utility for streamlit to render button for recommendation
     recommended_movie_names,recommended_movie_posters = recommend(selected_movie)
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
